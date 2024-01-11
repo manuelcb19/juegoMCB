@@ -3,7 +3,8 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:ugh2/games/UghGame.dart';
+
+import '../games/UghGame.dart';
 
 class Estrella extends SpriteComponent
     with HasGameRef<UghGame>,CollisionCallbacks{

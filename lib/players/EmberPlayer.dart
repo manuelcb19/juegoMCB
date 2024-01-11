@@ -5,10 +5,9 @@ import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ugh2/elementos/Estrella.dart';
-import 'package:ugh2/games/UghGame.dart';
 
 import '../elementos/Gota.dart';
+import '../games/UghGame.dart';
 import 'EmberPlayer2.dart';
 
 class EmberPlayer extends SpriteAnimationComponent

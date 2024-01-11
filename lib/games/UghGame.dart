@@ -6,17 +6,16 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
-import 'package:ugh2/bodies/TierraBody.dart';
-import 'package:ugh2/elementos/Gota.dart';
 
+import '../bodies/TierraBody.dart';
 import '../configs/config.dart';
 import '../elementos/Estrella.dart';
+import '../elementos/Gota.dart';
 import '../players/EmberPlayer.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_forge2d/forge2d_game.dart';
 
 import '../players/EmberPlayer2.dart';
-
 
 class UghGame extends Forge2DGame with
     HasKeyboardHandlerComponents,HasCollisionDetection{
