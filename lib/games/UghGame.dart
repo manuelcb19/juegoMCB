@@ -37,7 +37,8 @@ class UghGame extends Forge2DGame with
       'star.png',
       'water_enemy.png',
       'reading.png',
-      'tilemap1_32.png'
+      'tilemap1_32.png',
+      'nuevomapa.jpeg'
     ]);
     cameraComponent = CameraComponent(world: world);
     //cameraComponent = CameraComponent(world: world);
@@ -67,9 +68,9 @@ class UghGame extends Forge2DGame with
     mapComponent=await TiledComponent.load('mapa1.tmx', Vector2(32*wScale,32*hScale));
     world.add(mapComponent);
 
-    ObjectGroup? estrellas=mapComponent.tileMap.getLayer<ObjectGroup>("estrellas");
+  //  ObjectGroup? estrellas=mapComponent.tileMap.getLayer<ObjectGroup>("estrellas");
 
-    for(final estrella in estrellas!.objects){
+    /*for(final estrella in estrellas!.objects){
       Estrella spriteStar = Estrella(position: Vector2(estrella.x,estrella.y),
       size: Vector2(64*wScale,64*hScale));
       add(spriteStar);
@@ -89,7 +90,7 @@ class UghGame extends Forge2DGame with
       TierraBody tierraBody = TierraBody(tiledBody: tiledObjectTierra,
           scales: Vector2(wScale,hScale));
       add(tierraBody);
-    }
+    }*/
 
     _player = EmberPlayerBody(initialPosition: Vector2(128, canvasSize.y - 350,),
       iTipo: EmberPlayerBody.I_PLAYER_TANYA,tamano: Vector2(50,100)

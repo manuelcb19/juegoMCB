@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.10.2" name="tilemap1_32" tilewidth="32" tileheight="32" tilecount="135" columns="9">
- <image source="../images/tilemap1_32.png" width="288" height="480"/>
+<tileset version="1.10" tiledversion="1.10.2" name="patron_manuel" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+ <image source="nuevomapa.jpeg" width="1024" height="1024"/>
 </tileset>
