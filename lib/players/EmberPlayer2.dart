@@ -82,37 +82,22 @@ class EmberPlayerBody2 extends BodyComponent with KeyboardHandler{
 
   @override
   bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
-    // TODO: implement onKeyEvent
-    //print("TECLADO PRESIONADO: "+event.data.logicalKey.keyId.toString());
-    /*if(keysPressed.contains(LogicalKeyboardKey.arrowRight)){
-      position.x+=20;
-    }
-    else if(keysPressed.contains(LogicalKeyboardKey.arrowLeft)){
-      position.x-=20;
-    }
-    else if(keysPressed.contains(LogicalKeyboardKey.arrowUp)){
-      position.y-=20;
-    }
-    else if(keysPressed.contains(LogicalKeyboardKey.arrowDown)){
-      position.y+=20;
-    }*/
+
     horizontalDirection = 0;
     verticalDirection = 0;
 
-    if(keysPressed.contains(LogicalKeyboardKey.arrowLeft)){
-      horizontalDirection=-1;
-    }
-    else if(keysPressed.contains(LogicalKeyboardKey.arrowRight)){
-      horizontalDirection=1;
+    if (event is RawKeyDownEvent) {
+      if (event.logicalKey == LogicalKeyboardKey.digit5) {
+        body.gravityOverride = (body.gravityOverride?.y ?? 0) > 1
+            ? Vector2(0, -80.0)
+            : Vector2(0, 80.0);
+      }
     }
 
-
-    if(keysPressed.contains(LogicalKeyboardKey.arrowUp)){
-      verticalDirection=-1;
-    }
-    else if(keysPressed.contains(LogicalKeyboardKey.arrowDown)){
-      verticalDirection=1;
-    }
+    if(keysPressed.contains(LogicalKeyboardKey.arrowLeft)){horizontalDirection=-1;}
+    else if(keysPressed.contains(LogicalKeyboardKey.arrowRight)){horizontalDirection=1;}
+    if(keysPressed.contains(LogicalKeyboardKey.arrowUp)){verticalDirection=-1;}
+    else if(keysPressed.contains(LogicalKeyboardKey.arrowDown)){verticalDirection=1;}
 
     return true;
   }
