@@ -11,6 +11,7 @@ import '../bodies/TierraBody.dart';
 import '../configs/config.dart';
 import '../elementos/Estrella.dart';
 import '../elementos/Gota.dart';
+import '../elementos/VidaComponent.dart';
 import '../players/EmberPlayer.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_forge2d/forge2d_game.dart';
@@ -25,7 +26,7 @@ class UghGame extends Forge2DGame with
   late EmberPlayerBody _player;
   late EmberPlayerBody2 _player2;
   late TiledComponent mapComponent;
-
+  late VidasComponent vidasComponent;
   double wScale=1.0,hScale=1.0;
 
   @override
@@ -68,9 +69,9 @@ class UghGame extends Forge2DGame with
     mapComponent=await TiledComponent.load('mapa1.tmx', Vector2(32*wScale,32*hScale));
     world.add(mapComponent);
 
-  //  ObjectGroup? estrellas=mapComponent.tileMap.getLayer<ObjectGroup>("estrellas");
+   ObjectGroup? estrellas=mapComponent.tileMap.getLayer<ObjectGroup>("estrellas");
 
-    /*for(final estrella in estrellas!.objects){
+    for(final estrella in estrellas!.objects){
       Estrella spriteStar = Estrella(position: Vector2(estrella.x,estrella.y),
       size: Vector2(64*wScale,64*hScale));
       add(spriteStar);
@@ -90,7 +91,15 @@ class UghGame extends Forge2DGame with
       TierraBody tierraBody = TierraBody(tiledBody: tiledObjectTierra,
           scales: Vector2(wScale,hScale));
       add(tierraBody);
-    }*/
+    }
+
+    vidasComponent = VidasComponent(
+      totalVidas: 5,
+      vidaCompleta: Sprite(await images.load('heart.png')),
+      mediaVida: Sprite(await images.load('heart_half.png')),
+      tamanoCorazon: Vector2(32, 32),
+    );
+    add(vidasComponent);
 
     _player = EmberPlayerBody(initialPosition: Vector2(128, canvasSize.y - 350,),
       iTipo: EmberPlayerBody.I_PLAYER_TANYA,tamano: Vector2(50,100)
